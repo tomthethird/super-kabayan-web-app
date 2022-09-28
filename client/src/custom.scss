@@ -1,0 +1,7 @@
+// Variable overrides first
+
+$primary: #7023D7;
+$secondary: #3ff33f;
+
+// Then import Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";

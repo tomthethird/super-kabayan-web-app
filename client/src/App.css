@@ -1,0 +1,245 @@
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+header {
+  background-color: #7023D7;
+  color: aliceblue;
+}
+
+body {
+  min-height: -webkit-fill-available;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+html {
+height: -webkit-fill-available;
+
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  /* rtl:raw:
+  right: 0;
+  */
+  bottom: 0;
+  /* rtl:remove */
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 120px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  height: calc(100vh - 120px);
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+main {
+height: -webkit-fill-available;
+overflow-x: auto;
+overflow-y: hidden;
+}
+
+.dropdown-toggle { outline: 0; }
+
+.btn-single {
+padding: .40rem .5rem;
+font-weight: 600;
+color: rgba(0, 0, 0, .65);
+background-color: transparent;
+}
+
+.btn-single:hover,
+.btn-single:focus {
+color: rgba(0, 0, 0, .85);
+background-color: #e7def3;
+}
+
+.btn-toggle {
+padding: .40rem .5rem;
+font-weight: 600;
+color: rgba(0, 0, 0, .65);
+background-color: transparent;
+}
+.btn-toggle:hover,
+.btn-toggle:focus {
+color: rgba(0, 0, 0, .85);
+background-color: #e7def3;
+}
+
+.btn-toggle::before {
+width: 1.25em;
+line-height: 0;
+content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+transition: transform .35s ease;
+transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+color: rgba(0, 0, 0, .85);
+}
+.btn-toggle[aria-expanded="true"]::before {
+transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+padding: .1875rem .5rem;
+margin-top: .125rem;
+margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+background-color: #e7def3;
+}
+
+#Emergency-Fund {
+  /* background-color: #10f0b4; */
+  background-image: linear-gradient(-45deg, #98edba,#a9ed66);
+}
+
+#House {
+  background-color: #a9ed66;
+}
+
+#Car {
+  background-color: #98cbed;
+}
+
+#Gift {
+  background-color: #46cad4;
+}
+
+#Wedding {
+  background-color: #edb07e;
+}
+
+#Education {
+  background-color: #9c66ed;
+}
+
+#Business {
+  background-color: #ed98a9;
+}
+
+#Vacation {
+  background-color: #667aed;
+}
+
+#Leisure {
+  background-color: #98edba;
+}
+
+#Gadget {
+  background-color: #d9e864;
+}
+
+#Retirement {
+  background-color: #dbb070;
+}
+
+#pay0 {
+  background-color: #90e366;
+}
+#pay1 {
+  background-color: #476bba;
+}
+#pay2 {
+  background-color: #9f92e0;
+}
+#pay3 {
+  background-color: #6994c9;
+}
+#pay4 {
+  background-color: #a9ed66;
+}
+#pay5 {
+  background-color: #8f6c56;
+}
+#pay6 {
+  background-color: #8ee2b0;
+}
+#pay7 {
+  background-color: #d48fd9;
+}
+#pay8 {
+  background-color: #667aed;
+}
+
+
+#boxContainer {
+  background-color: #f5f5f5
+}
+
+.offcanvas-body {
+  height: -webkit-fill-available;
+  height: 100vh;
+}
+
+.title {
+  letter-spacing: -2px;
+  font-family: 'Syncopate', sans-serif;
+}
+
+.title-number {
+  font-family: 'Syncopate', sans-serif;
+}
+
+.progress {
+  height: 40px;
+  border-radius: 20px;
+}
+
+.progress-bar {
+  border-radius: 20px;
+}
+
+#goodnight {
+  color: whitesmoke;
+  background-image: linear-gradient(-45deg, #66538c,#a28abc);
+}
+
+#goodday {
+  color: black;
+  background-image: linear-gradient(-45deg, #83aad8, #b9ffee);
+}
+
+.newItem {
+  background-image: linear-gradient(-45deg, #83aad8, #b9ffee);
+}
