@@ -1,6 +1,6 @@
 import React from 'react';
 import Register from './Register';
-import logo from '../sk-logo.png';
+import logo from '../assets/sk-logo.png';
 import { Link } from "react-router-dom";
 
 const Home = ({ setAuth }) => {

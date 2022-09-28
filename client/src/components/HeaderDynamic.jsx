@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../sk-logo.png';
+import logo from '../assets/sk-logo.png';
 import HeaderUserInfo from "./HeaderUserInfo";
 import HeaderDropdown from "./HeaderDropdown";
 

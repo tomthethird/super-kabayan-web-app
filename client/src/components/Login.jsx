@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../sk-logo.png";
+import logo from '../assets/sk-logo.png';
 import { Link } from "react-router-dom";
 
 const Login = ({ setAuth }) => {
