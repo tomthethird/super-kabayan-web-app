@@ -3,6 +3,18 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+// const prodConfig = {
+//     connectionString : process.env.DATABASE_URL,
+//     ssl : {
+//         rejectUnauthorized: false
+//     }
+// }
+
+// const connectDatabase = () => {
+//     const pool = new pg.Pool(prodConfig)
+//     return pool
+// }
+
 const connectDatabase = () => {
     const pool = new pg.Pool( {
         database: process.env.DATABASE_NAME,
@@ -14,4 +26,5 @@ const connectDatabase = () => {
 
     return pool;
 }
+
 export { connectDatabase }

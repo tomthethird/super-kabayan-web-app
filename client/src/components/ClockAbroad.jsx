@@ -31,7 +31,7 @@ const ClockAbroad = () => {
 
     const getTime = () => {
         const abroad = DateTime.now().setZone(timezone)
-        setDate(abroad.toFormat("ccc, mm MMM"))
+        setDate(abroad.toFormat("ccc, dd MMM"))
         setTime(abroad.toFormat("hh:mm"))
         setMeridiem(abroad.toFormat("a"))
         const hour = parseInt(abroad.toFormat("H"))

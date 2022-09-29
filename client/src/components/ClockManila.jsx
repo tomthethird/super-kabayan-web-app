@@ -10,7 +10,7 @@ const ClockManila = () => {
 
     const getTime = () => {
         const manila = DateTime.now().setZone("Asia/Manila")
-        setDate(manila.toFormat("ccc, mm MMM"))
+        setDate(manila.toFormat("ccc, dd MMM"))
         setTime(manila.toFormat("hh:mm"))
         setMeridiem(manila.toFormat("a"))
         const hour = parseInt(manila.toFormat("H"))
