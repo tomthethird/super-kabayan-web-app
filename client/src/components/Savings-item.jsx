@@ -26,7 +26,7 @@ const SavingsItem = ({ setAuth }) => {
 
   const getSavings = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/savings/get/${id}`, {
+      const response = await fetch(`https://superkabayan.herokuapp.com/savings/get/${id}`, {
         method: "GET",
         headers: {
           Authorization: localStorage.getItem("token"),
@@ -43,7 +43,7 @@ const SavingsItem = ({ setAuth }) => {
   const getTransaction = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8000/savings-transaction/${id}`,
+        `https://superkabayan.herokuapp.com/savings-transaction/${id}`,
         {
           method: "GET",
           headers: {
@@ -94,7 +94,7 @@ const SavingsItem = ({ setAuth }) => {
       const body = { category, trans_amount, id };
 
       const response = await fetch(
-        `http://localhost:8000/savings-transaction`,
+        `https://superkabayan.herokuapp.com/savings-transaction`,
         {
           method: "POST",
           headers: {
@@ -132,7 +132,7 @@ const SavingsItem = ({ setAuth }) => {
   const updateSavingsCurrentVal = async () => {
     try {
       const body = { transAmountTotal };
-      await fetch(`http://localhost:8000/savings/currentval/${id}`, {
+      await fetch(`https://superkabayan.herokuapp.com/savings/currentval/${id}`, {
         method: "PUT",
         headers: {
           Authorization: localStorage.getItem("token"),
@@ -147,7 +147,7 @@ const SavingsItem = ({ setAuth }) => {
 
   const handleDelete = async (deleteID) => {
     try {
-      await fetch(`http://localhost:8000/savings-transaction/${deleteID}`, {
+      await fetch(`https://superkabayan.herokuapp.com/savings-transaction/${deleteID}`, {
         method: "DELETE",
         headers: {
           Authorization: localStorage.getItem("token"),

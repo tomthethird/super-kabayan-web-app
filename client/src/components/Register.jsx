@@ -44,7 +44,7 @@ const Register = (props) => {
     try {
       const body = { username, email, userpassword, errorLog };
 
-      const response = await fetch("http://localhost:8000/auth/register", {
+      const response = await fetch("https://superkabayan.herokuapp.com/auth/register", {
         method: "POST",
         headers: {
           "Content-type": "application/json",

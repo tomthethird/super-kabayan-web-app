@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { DateTime } from "luxon";
 
 const ClockManila = () => {
-
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
     const [meridiem, setMeridiem] = useState("");

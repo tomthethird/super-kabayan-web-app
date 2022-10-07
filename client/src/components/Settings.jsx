@@ -18,7 +18,7 @@ const Settings = ({ setAuth }) => {
   const getInitialValue = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8000/account",
+        "https://superkabayan.herokuapp.com/account",
         {
           method: "GET",
           headers: {
@@ -58,7 +58,7 @@ const Settings = ({ setAuth }) => {
   const getcountry = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8000/utils/countries",
+        "https://superkabayan.herokuapp.com/utils/countries",
         {
           method: "GET",
         });
@@ -111,7 +111,7 @@ const onSubmitAccount = async (e) => {
         const body = { username, email, userpassword, errorLog, tempEmail, tempUsername }
 
         const response = await fetch(
-            "http://localhost:8000/account",
+            "https://superkabayan.herokuapp.com/account",
             {
                 method: "PUT",
                 headers: {
@@ -143,7 +143,7 @@ const onSubmitProfile = async (e) => {
       const body = { firstname, lastname, birthdate, country, phone }
 
       const response = await fetch(
-          "http://localhost:8000/account/profile",
+          "https://superkabayan.herokuapp.com/account/profile",
           {
               method: "PUT",
               headers: {

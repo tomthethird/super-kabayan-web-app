@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 const ExchangeRate = () => {
-
   const [exchangeRate, setExchangeRate] = useState({});
   const [exchangeUpdate, setExchangeUpdate] = useState("")
   const [userInfo, setUserInfo] = useState({});
   const [getCountry, setGetCountry] = useState(false);
-  const [getRate, setGetRate] = useState(false)
 
   const getUser = async () => {
     try {
-      const response = await fetch("http://localhost:8000/utils/dash", {
+      const response = await fetch("https://superkabayan.herokuapp.com/utils/dash", {
         method: 'GET',
         headers: {
           Authorization: localStorage.getItem("token")
@@ -33,20 +31,16 @@ const ExchangeRate = () => {
 
   const getExchange = async () => {
     try {
-      const response = await fetch(`https://api.fastforex.io/fetch-multi?from=${userInfo.currency}&to=PHP%2CUSD%2CEUR%2CJPY&api_key=cec7aa8493-f3ff37f8e3-rimprl`, {
+      const response = await fetch(`https://open.er-api.com/v6/latest/${userInfo.currency}`, {
         method: 'GET',
         headers: { accept: 'application/json' }
       });
       const parseExchange = await response.json();
 
-      if (parseExchange.results) {
-        setExchangeRate(parseExchange.results);
-        setExchangeUpdate(parseExchange.updated)
-        setGetRate(true)
-      } else {
-        setGetRate(false);
+      if (parseExchange.rates) {
+        setExchangeRate(parseExchange.rates);
+        setExchangeUpdate(parseExchange.time_last_update_utc)
       }
-
     } catch (error) {
       console.error(error)
     }

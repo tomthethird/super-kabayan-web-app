@@ -34,7 +34,7 @@ const Payment = ({ setAuth }) => {
   const getPayments = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8000/payment",
+        "https://superkabayan.herokuapp.com/payment",
         {
           method: "GET",
           headers: {
@@ -55,7 +55,7 @@ const Payment = ({ setAuth }) => {
   // const getCategory = async () => {
   //   try {
   //     const response = await fetch(
-  //       "http://localhost:8000/utils/interval",
+  //       "https://superkabayan.herokuapp.com/utils/interval",
   //       {
   //         method: "GET",
   //       });
@@ -69,7 +69,7 @@ const Payment = ({ setAuth }) => {
   const getOrgs = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8000/utils/organizations",
+        "https://superkabayan.herokuapp.com/utils/organizations",
         {
           method: "GET",
         });
@@ -158,7 +158,7 @@ const Payment = ({ setAuth }) => {
       const body = { org_id, title, amount, due_date, interval }
 
       const response = await fetch(
-        "http://localhost:8000/payment",
+        "https://superkabayan.herokuapp.com/payment",
         {
           method: "POST",
           headers: {
@@ -193,7 +193,7 @@ const Payment = ({ setAuth }) => {
 
   const handleDelete = async (deleteID) => {
     try {
-      await fetch(`http://localhost:8000/payment/${deleteID}`, {
+      await fetch(`https://superkabayan.herokuapp.com/payment/${deleteID}`, {
         method: "DELETE",
         headers: {
           Authorization: localStorage.getItem("token"),

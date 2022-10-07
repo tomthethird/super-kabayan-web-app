@@ -11,7 +11,7 @@ const HeaderDynamic = (props) => {
         <header className="p-4 fixed-top">
         <div className="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-between">
             <div>
-                <a href="http://localhost:3000/dashboard" className="d-flex align-items-center">
+                <a href="https://superkabayan.herokuapp.com/dashboard" className="d-flex align-items-center">
                     <img className="bi" aria-label="logo" src={logo} />
                 </a>
             </div>

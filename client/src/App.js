@@ -26,7 +26,7 @@ function App() {
 
   const verify = async () => {
     try {
-      const response = await fetch("http://localhost:8000/auth/verify", {
+      const response = await fetch("https://superkabayan.herokuapp.com/auth/verify", {
         method: 'GET',
         headers: {Authorization: localStorage.getItem('token')}
       });

@@ -30,7 +30,6 @@ const Savings = ({ setAuth }) => {
 
   const [userInfo, setUserInfo] = useState({});
   const [getCountry, setGetCountry] = useState(false);
-  const [getRate, setGetRate] = useState(false)
   const [exchangeRate, setExchangeRate] = useState({});
 
   const onChange = (e) => {
@@ -95,7 +94,7 @@ const Savings = ({ setAuth }) => {
   const getSavings = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8000/savings",
+        "https://superkabayan.herokuapp.com/savings",
         {
           method: "GET",
           headers: {
@@ -126,7 +125,7 @@ const Savings = ({ setAuth }) => {
   const getCategory = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8000/utils/savingscategory",
+        "https://superkabayan.herokuapp.com/utils/savingscategory",
         {
           method: "GET",
         });
@@ -139,7 +138,7 @@ const Savings = ({ setAuth }) => {
 
   const getUser = async () => {
     try {
-      const response = await fetch("http://localhost:8000/utils/dash", {
+      const response = await fetch("https://superkabayan.herokuapp.com/utils/dash", {
         method: 'GET',
         headers: {
           Authorization: localStorage.getItem("token")
@@ -161,19 +160,15 @@ const Savings = ({ setAuth }) => {
 
   const getExchange = async () => {
     try {
-      const response = await fetch(`https://api.fastforex.io/fetch-multi?from=${userInfo.currency}&to=PHP%2CUSD%2CEUR%2CJPY&api_key=cec7aa8493-f3ff37f8e3-rimprl`, {
+      const response = await fetch(`https://open.er-api.com/v6/latest/${userInfo.currency}`, {
         method: 'GET',
         headers: { accept: 'application/json' }
       });
       const parseExchange = await response.json();
 
-      if (parseExchange.results) {
-        setExchangeRate(parseExchange.results);
-        setGetRate(true)
-      } else {
-        setGetRate(false);
+      if (parseExchange.rates) {
+        setExchangeRate(parseExchange.rates);
       }
-
     } catch (error) {
       console.error(error)
     }
@@ -195,7 +190,7 @@ const Savings = ({ setAuth }) => {
       }, 1000);
       return () => clearTimeout(timeOutId);
     }
-  });
+  },[]);
 
   const { expenseAbroad, expensePersonal, liabilities } = fundFormValues
 
@@ -207,7 +202,7 @@ const Savings = ({ setAuth }) => {
       const body = { expenseAbroad, expensePersonal, liabilities, monthMultiplier, totalFund }
 
       const response = await fetch(
-        "http://localhost:8000/savingsemergencyfund",
+        "https://superkabayan.herokuapp.com/savingsemergencyfund",
         {
           method: "POST",
           headers: {
@@ -237,7 +232,7 @@ const Savings = ({ setAuth }) => {
       const body = { savings_name, category, savings_goal }
 
       const response = await fetch(
-        "http://localhost:8000/savings",
+        "https://superkabayan.herokuapp.com/savings",
         {
           method: "POST",
           headers: {
@@ -266,7 +261,7 @@ const Savings = ({ setAuth }) => {
 
   const handleDelete = async (deleteID) => {
     try {
-      await fetch(`http://localhost:8000/savings/${deleteID}`, {
+      await fetch(`https://superkabayan.herokuapp.com/savings/${deleteID}`, {
         method: "DELETE",
         headers: {
           Authorization: localStorage.getItem("token"),

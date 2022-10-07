@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { DateTime } from "luxon";
 
 const ClockAbroad = () => {
-
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
     const [meridiem, setMeridiem] = useState("");
@@ -12,7 +11,7 @@ const ClockAbroad = () => {
 
     const getUser = async () => {
         try {
-            const response = await fetch("http://localhost:8000/utils/dash", {
+            const response = await fetch("https://superkabayan.herokuapp.com/utils/dash", {
                 method: 'GET',
                 headers: {
                     Authorization: localStorage.getItem("token")
@@ -20,7 +19,6 @@ const ClockAbroad = () => {
             });
             const parseUser = await response.json();
             if (parseUser.country_code) {
-                console.log(parseUser)
                 setTimezone(parseUser.timezone);
                 setCountryName(parseUser.country_name.toUpperCase())
             }

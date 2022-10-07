@@ -1,26 +1,25 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect }  from 'react';
+import { Link } from 'react-router-dom';
 import HeaderDynamic from './HeaderDynamic';
 import SidebarNav from './SidebarNav';
-import ExchangeRate from './ExchangeRate';
-import Badge from 'react-bootstrap/Badge';
-import { Link } from 'react-router-dom';
 import ClockManila from './ClockManila';
 import ClockAbroad from './ClockAbroad';
+import ExchangeRate from './ExchangeRate';
+import PaymentCards from './Payment-cards';
+import SavingsCards from './Savings-cards';
+import Notification from './Notification';
 
 const Dashboard = ({ setAuth }) => {
-
   const [savings, setSavings] = useState([]);
   const [payment, setPayment] = useState([])
   const [userInfo, setUserInfo] = useState({});
   const [getCountry, setGetCountry] = useState(false);
   const [countries, setCountry] = useState([]);
   const [formValues, setFormValues] = useState("");
-  const [notif, setNotif] = useState([]);
 
   const getUser = async () => {
     try {
-      const response = await fetch("http://localhost:8000/utils/dash", {
+      const response = await fetch("https://superkabayan.herokuapp.com/utils/dash", {
         method: 'GET',
         headers: {
           Authorization: localStorage.getItem("token")
@@ -48,7 +47,7 @@ const Dashboard = ({ setAuth }) => {
   const getcountry = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8000/utils/countries",
+        "https://superkabayan.herokuapp.com/utils/countries",
         {
           method: "GET",
           
@@ -60,25 +59,9 @@ const Dashboard = ({ setAuth }) => {
     }
   };
 
-  const getNotif = async () => {
-    try {
-      const response = await fetch(
-        "http://localhost:8000/utils/overdue", {
-          method: 'GET',
-          headers: {
-            Authorization: localStorage.getItem('token'),
-          },
-        });
-        const parseNotif = await response.json();
-        setNotif(parseNotif)
-    } catch (error) {
-      console.log(error.message)
-    }
-  }
-
   const getSavings = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/savings/cards`, {
+      const response = await fetch(`https://superkabayan.herokuapp.com/savings/cards`, {
         method: 'GET',
         headers: {
           Authorization: localStorage.getItem('token'),
@@ -96,7 +79,7 @@ const Dashboard = ({ setAuth }) => {
 
   const getPayments = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/payment/cards`, {
+      const response = await fetch(`https://superkabayan.herokuapp.com/payment/cards`, {
         method: 'GET',
         headers: {
           Authorization: localStorage.getItem('token'),
@@ -116,40 +99,11 @@ const Dashboard = ({ setAuth }) => {
     getcountry();
     getSavings();
     getPayments();
-    getNotif();
   }, []);
 
   const reload = (num) => {
     const timeOutId = setInterval(() => window.location.reload(), num);
     return () => clearTimeout(timeOutId);
-  };
-
-  const getPercentage = (num1, num2) => {
-    const percentage = (num1 / num2) * 100;
-    return percentage;
-  };
-  const stringCategory = (category) => {
-    const text = category;
-    const result = text.replace(' ', '-');
-    return result;
-  };
-
-  const comma = (Num) => {
-    Num += '';
-    Num = Num.replace(',', '');
-    Num = Num.replace(',', '');
-    Num = Num.replace(',', '');
-    Num = Num.replace(',', '');
-    Num = Num.replace(',', '');
-    Num = Num.replace(',', '');
-    let x = Num.split('.');
-    let x1 = x[0];
-    let x2 = x.length > 1 ? '.' + x[1] : '';
-    let rgx = /(\d+)(\d{3})/;
-    while (rgx.test(x1))
-      // x1 = x1.replace(rgx, '$1' + ',' + '$2');
-      x1 = x1.replace(rgx, `$1,$2`);
-    return x1 + x2;
   };
 
   const { country } = formValues
@@ -158,11 +112,9 @@ const Dashboard = ({ setAuth }) => {
     e.preventDefault()
     console.log(formValues)
     try {
-
       const body = { country }
-
       const response = await fetch(
-        "http://localhost:8000/account/profile",
+        "https://superkabayan.herokuapp.com/account/profile",
         {
           method: "PUT",
           headers: {
@@ -180,62 +132,6 @@ const Dashboard = ({ setAuth }) => {
     } catch (error) {
       console.log(error.message)
     }
-  };
-
-  const calculateDays = (date) => {
-    const now = new Date();
-    const dueDate = new Date(date)
-    const time = dueDate.getTime() - now.getTime()
-    const days = time / (1000 * 3600 * 24)
-    return Math.floor(days)
-  }
-
-  const countDays = (date) => {
-    let day = 0
-    let week = 0
-    let month = 0
-    let year = 0
-    let dayUnit = ""
-    let weekUnit = ""
-    let monthUnit = ""
-    let yearUnit = ""
-
-    year = Math.floor(date / 365)
-    month = Math.floor((date % 365) / 30)
-    week = Math.floor(((date % 365) % 30) / 7)
-    day = Math.floor(((date % 365) % 30) % 7)
-
-    year === 1 ? yearUnit = "year" : yearUnit = "years"
-    month === 1 ? monthUnit = "month" : monthUnit = "months"
-    week === 1 ? weekUnit = "week" : weekUnit = "weeks"
-    day === 1 ? dayUnit = "day" : dayUnit = "days"
-
-    const yearStr = year === 0 ? "" : `${year} ${yearUnit} `
-    const monthStr = month === 0 ? "" : `${month} ${monthUnit} `
-    const weekStr = week === 0 ? "" : `${week} ${weekUnit} `
-    const dayStr = day === 0 ? "" : `${day} ${dayUnit}`
-
-    const str = `${yearStr}${monthStr}${weekStr}${dayStr}`
-
-    return str
-  };
-
-  const getOverdue = (date) =>{
-    const year = Math.floor(date / 365)
-    const month = Math.floor((date % 365) / 30)
-    const week = Math.floor(((date % 365) % 30) / 7)
-    const day = Math.floor(((date % 365) % 30) % 7)
-    if (day<1 && week<1 && month<1 && year<1){
-      return true
-    }
-  };
-
-  const dateString = (date) => {
-    const dueDate = new Date(date);
-    const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    const str = `${dueDate.getDate()} ${month[dueDate.getMonth()]} ${dueDate.getFullYear()}`;
-    return str
   };
 
   return (
@@ -322,75 +218,8 @@ const Dashboard = ({ setAuth }) => {
                             </div>
                           </div>)}
 
-                      
-
-                      {savings.map((savings) => {
-                        if (savings.category === "Emergency Fund") {
-                          return <div className="col-md-6 col-lg-4 col-xl-4 flex-wrap position-relative ">
-                            <Link to={`/savings/${savings.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                              <div className="p-4 snip-card rounded-5 shadow" id={stringCategory(savings.category)}>
-                                <h4 className="title text-white mb-0"> EMERGENCY </h4>
-                                <h5 className="title text-white mb-0">FUND</h5>
-                                <br />
-                                <div className="d-flex fw-normal justify-content-between py-1">
-                                  <h6 className="title">GOAL</h6>
-                                  <br />
-                                  <h6 className="title-number text-white" id="efGoal"> {comma(savings.savings_goal)}</h6>
-                                </div>
-                                <div className="d-flex fw-normal justify-content-between pt-1 align-items-center">
-                                  <h6 className="title">{savings.month} mos.</h6>
-                                  <h1 className="fw-bold text-end title-number" id="efPercent">{Math.round(getPercentage(savings.current_value, savings.savings_goal))}%</h1>
-                                </div>
-                              </div>
-                            </Link>
-                          </div>
-
-                        } else {
-                          return <div className="col-md-6 col-lg-4 col-xl-4 flex-wrap position-relative ">
-                            <Link to={`/savings/${savings.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                              <div className="p-4 snip-card rounded-5 shadow bg-gradient" id={stringCategory(savings.category)}>
-                                <h3 className="title text-white mb-0"> SAVINGS </h3>
-                                <h6 className="mb-0"> {savings.savings_name.toUpperCase()}</h6>
-                                <br />
-                                <div className="d-flex fw-normal justify-content-between py-2">
-                                  <h6 className="title">GOAL</h6>
-                                  <br />
-                                  <h6 className="title-number text-white" id="efGoal"> {comma(savings.savings_goal)}</h6>
-                                </div>
-                                <h1 className="fw-bold text-end title-number" id="efPercent">{Math.round(getPercentage(savings.current_value, savings.savings_goal))}%</h1>
-                              </div>
-                            </Link>
-                          </div>
-
-                        }
-                      })}
-
-                      {payment.map((payment) => {
-                          return <div className="col-md-6 col-lg-4 col-xl-4 flex-wrap position-relative ">
-                            <Link to={`/payments`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                              <div className="p-4 snip-card rounded-5 shadow bg-gradient" id={`pay${payment.org_id}`}>
-                              <h3 className="title text-uppercase mb-0 text-white">{payment.title.slice(0, 10)}</h3>
-                                <h6 className="mb-0">Due: {dateString(payment.due_date.slice(0, 10))}</h6>
-                                <br />
-                                <div className="text-end mt-1">
-                                  <div className="row">
-                                    <div className="col d-flex justify-content-between align-items-center">
-                                    <h6 className="title">AMOUNT</h6>
-                                    <h6 className="title-number text-white">{comma(payment.amount)}</h6>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="d-flex justify-content-end mt-4">
-                                <div className="col d-flex justify-content-start">
-                                {getOverdue(calculateDays(payment.due_date)) ? <h5 className="mt-1 pt-0"><Badge pill bg="danger">overdue</Badge></h5> : 
-                                  <h6 className="text-start text-dark">Pay in <br /><strong>{countDays(calculateDays(payment.due_date))}</strong></h6>
-                                  }
-                                </div>
-                              </div>
-                              </div>
-                              </Link>
-                          </div>
-                      })}
+                      <SavingsCards />
+                      <PaymentCards />
 
                     </div>
                   </div>
@@ -399,17 +228,7 @@ const Dashboard = ({ setAuth }) => {
 
               <div className="col-xl-4 pt-4">
 
-              {notif.length>0 ? (
-                  <div className="row g-4 mx-1 mx-xl-0">
-                    <div className="col-md-6 col-xl-12 pb-4">
-                    <div className="col p-3 snip-card rounded-5 shadow bg-danger bg-gradient text-white pb-2">
-                      {notif.map((payment) => {
-                        return <h5 className="pb-1"><Badge pill bg="white" text="danger">overdue</Badge> {payment.title} : <strong>P{comma(payment.amount)}</strong></h5>
-                      })}
-                    </div>
-                    </div>
-                  </div> ) : (<></> )}
-                
+                <Notification />
 
                 {getCountry ? (
                   <div className="row g-4 mx-1 mx-xl-0">

@@ -6,14 +6,14 @@ const SidebarNav = () => {
          <div className="position-sticky pt-3 sidebar-sticky">
             <ul className="nav flex-column mx-3">
                <li className="nav-item">
-                  <a className="btn-single d-inline-flex text-decoration-none rounded" href="http://localhost:3000/dashboard">Dashboard</a>
+                  <a className="btn-single d-inline-flex text-decoration-none rounded" href="https://superkabayan.herokuapp.com/dashboard">Dashboard</a>
                </li>
                <li className="border-top my-2"></li>
                <li className="nav-item">
-                  <a className="btn-single d-inline-flex text-decoration-none rounded" href="http://localhost:3000/savings">Savings</a>
+                  <a className="btn-single d-inline-flex text-decoration-none rounded" href="https://superkabayan.herokuapp.com/savings">Savings</a>
                </li>
                <li className="nav-item">
-                  <a className="btn-single d-inline-flex text-decoration-none rounded" href="http://localhost:3000/payments">Payments</a>
+                  <a className="btn-single d-inline-flex text-decoration-none rounded" href="https://superkabayan.herokuapp.com/payments">Payments</a>
                </li>
                <li className="border-top my-2"></li>
                <li className="nav-item">
@@ -23,13 +23,13 @@ const SidebarNav = () => {
                   <div className="collapse" id="account-collapse">
                      <ul className="btn-toggle-nav list-unstyled fw-normal pb-4">
                      <li className="nav-item">
-                  <a className="btn-single d-inline-flex text-decoration-none rounded disabled" href="http://localhost:3000/development">Budget</a>
+                  <a className="btn-single d-inline-flex text-decoration-none rounded disabled" href="https://superkabayan.herokuapp.com/development">Budget</a>
                </li>
                <li className="nav-item">
-                  <a className="btn-single d-inline-flex text-decoration-none rounded" href="http://localhost:3000/development">Masterclass</a>
+                  <a className="btn-single d-inline-flex text-decoration-none rounded" href="https://superkabayan.herokuapp.com/development">Masterclass</a>
                </li>
                <li className="nav-item">
-                  <a className="btn-single d-inline-flex text-decoration-none rounded" href="http://localhost:3000/development">Hotlines</a>
+                  <a className="btn-single d-inline-flex text-decoration-none rounded" href="https://superkabayan.herokuapp.com/development">Hotlines</a>
                </li>
                      </ul>
                   </div>

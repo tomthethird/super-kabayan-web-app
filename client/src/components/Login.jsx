@@ -47,7 +47,7 @@ const Login = ({ setAuth }) => {
     try {
       const body = { email, userpassword, errorLog };
 
-      const response = await fetch("http://localhost:8000/auth/login", {
+      const response = await fetch("https://superkabayan.herokuapp.com/auth/login", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -75,7 +75,7 @@ const Login = ({ setAuth }) => {
       <nav className="navbar navbar-expand-lg navbar-light bg-primary d-flex flex-wrap align-items-center justify-content-between justify-content-lg-between p-4">
         <div>
           <a
-            href="http://localhost:3000/"
+            href="https://superkabayan.herokuapp.com/"
             classNameName="d-flex align-items-center"
           >
             <img classNameName="bi" aria-label="logo" src={logo} />

@@ -134,72 +134,72 @@ background-color: #e7def3;
   background-image: linear-gradient(-45deg, #98edba,#a9ed66);
 }
 
-#House {
-  background-color: #a9ed66;
+#titleHouse {
+  color: #a9ed66;
 }
 
-#Car {
-  background-color: #98cbed;
+#titleCar {
+  color: #98cbed;
 }
 
-#Gift {
-  background-color: #46cad4;
+#titleGift {
+  color: #46cad4;
 }
 
-#Wedding {
-  background-color: #edb07e;
+#titleWedding {
+  color: #edb07e;
 }
 
-#Education {
-  background-color: #9c66ed;
+#titleEducation {
+  color: #9c66ed;
 }
 
-#Business {
-  background-color: #ed98a9;
+#titleBusiness {
+  color: #ed98a9;
 }
 
-#Vacation {
-  background-color: #667aed;
+#titleVacation {
+  color: #667aed;
 }
 
-#Leisure {
-  background-color: #98edba;
+#titleLeisure {
+  color: #98edba;
 }
 
-#Gadget {
-  background-color: #d9e864;
+#titleGadget {
+  color: #d9e864;
 }
 
-#Retirement {
-  background-color: #dbb070;
+#titleRetirement {
+  color: #dbb070;
 }
 
 #pay0 {
-  background-color: #90e366;
+  color: #90e366;
 }
 #pay1 {
-  background-color: #476bba;
+  color: #476bba;
 }
 #pay2 {
-  background-color: #9f92e0;
+  color: #9f92e0;
 }
 #pay3 {
-  background-color: #6994c9;
+  color: #6994c9;
 }
 #pay4 {
-  background-color: #a9ed66;
+  color: #a9ed66;
 }
 #pay5 {
-  background-color: #8f6c56;
+  color: #8f6c56;
 }
 #pay6 {
-  background-color: #8ee2b0;
+  color: #8ee2b0;
 }
 #pay7 {
-  background-color: #d48fd9;
+  color: #d48fd9;
 }
 #pay8 {
-  background-color: #667aed;
+  color: #667aed;
 }
 
 
