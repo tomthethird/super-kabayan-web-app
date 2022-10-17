@@ -7,7 +7,6 @@ import ClockAbroad from './ClockAbroad';
 import ExchangeRate from './ExchangeRate';
 import PaymentCards from './Payment-cards';
 import SavingsCards from './Savings-cards';
-import Notification from './Notification';
 import { IconContext } from "react-icons";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { MdOutlineAttachMoney } from "react-icons/md";
@@ -142,19 +141,15 @@ const Dashboard = ({ setAuth }) => {
     <div>
       <HeaderDynamic pushAuth={boolean => setAuth(boolean)} />
       <SidebarNav />
-      <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div className="my-1 p-5"></div>
-        {/* header padding */}
+      <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 d-flex justify-content-center bg-light">
+        
+          
+            <div className="row main-container">
 
-        <div className="container pt-4">
-          <div>
-            <div className="row d-flex justify-content-center">
-
-              <div className="col-xl-7">
+              <div className="col-xl-8 container pt-5 summary-container">
 
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-4">
-                  <div className="container" id="mainContainer">
-                    <div className="row g-4">
+                    <div className="row g-3">
 
                       {getCountry && savings.length > 0 && payment.length > 0 ? (<></>) : (
                         <div className="p-4 rounded-4 bg-primary-dull">
@@ -189,7 +184,6 @@ const Dashboard = ({ setAuth }) => {
                                   <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
                                 </svg>
                               </button>
-
                             </div>
                           </form>
                         </div>)}
@@ -225,16 +219,14 @@ const Dashboard = ({ setAuth }) => {
                       <PaymentCards />
 
                     </div>
-                  </div>
+                  
                 </div>
               </div>
 
-              <div className="col-xl-4 pt-4">
+              <div className="col-xl-4 pt-5 info-container">
 
-                <Notification />
-
-                {getCountry ? (
-                  <div className="row g-4 mx-1 mx-xl-0">
+               {getCountry ? (
+                  <div className="row mx-1 mx-xl-0">
                     <div className="col-md-6 pb-4">
                       <ClockManila />
                     </div>
@@ -243,7 +235,7 @@ const Dashboard = ({ setAuth }) => {
                     </div>
                   </div>
                 ) : (
-                  <div className="row g-4 mx-1 mx-xl-0">
+                  <div className="row mx-1 mx-xl-0">
                     <div className="col-md-6 col-xl-12 pb-4">
                       <ClockManila />
                     </div>
@@ -254,8 +246,8 @@ const Dashboard = ({ setAuth }) => {
 
               </div>
             </div>
-          </div>
-        </div>
+          
+        
 
       </main >
     </div >
