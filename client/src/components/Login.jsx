@@ -80,11 +80,6 @@ const Login = ({ setAuth }) => {
           </a>
           <Badge pill bg="primary-light">beta</Badge>
         </div>
-        <div>
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item"><Link to="/login" className="nav-link text-white">Log In</Link></li>
-          </ul>
-        </div>
       </nav>
 
       <div className="container-fluid">

@@ -34,11 +34,6 @@
   }
 }
 
-header {
-  background-color: #7023D7;
-  color: aliceblue;
-}
-
 body {
   min-height: -webkit-fill-available;
   font-family: 'Poppins', sans-serif;
