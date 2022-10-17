@@ -11,7 +11,7 @@ const ClockAbroad = () => {
 
     const getUser = async () => {
         try {
-            const response = await fetch("https://superkabayan.herokuapp.com/utils/dash", {
+            const response = await fetch("http://localhost:8000/utils/dash", {
                 method: 'GET',
                 headers: {
                     Authorization: localStorage.getItem("token")

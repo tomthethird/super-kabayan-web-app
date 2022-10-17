@@ -20,7 +20,7 @@ const Profile = ({ setAuth }) => {
 
     try {
       const response = await fetch(
-        `https://superkabayan.herokuapp.com/account/`,
+        `http://localhost:8000/account/`,
         {
           method: "GET",
           //retrieving the token and putting it in the Auth header
@@ -66,7 +66,7 @@ const Profile = ({ setAuth }) => {
   const getSavings = async() => {
     try {
         const response = await fetch(
-          "https://superkabayan.herokuapp.com/savings",
+          "http://localhost:8000/savings",
           {
             method: "GET",
             headers: {
@@ -97,7 +97,7 @@ const Profile = ({ setAuth }) => {
 
   const getPayments = async () => {
     try {
-      const response = await fetch(`https://superkabayan.herokuapp.com/payment/cards`, {
+      const response = await fetch(`http://localhost:8000/payment/cards`, {
         method: 'GET',
         headers: {
           Authorization: localStorage.getItem('token'),

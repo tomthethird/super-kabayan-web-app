@@ -6,7 +6,7 @@ const SavingsCards = ({ setAuth }) => {
 
   const getSavings = async () => {
     try {
-      const response = await fetch(`https://superkabayan.herokuapp.com/savings/cards`, {
+      const response = await fetch(`http://localhost:8000/savings/cards`, {
         method: 'GET',
         headers: {
           Authorization: localStorage.getItem('token'),

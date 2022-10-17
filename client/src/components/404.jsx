@@ -8,7 +8,7 @@ const MissingPage = () => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-primary d-flex flex-wrap align-items-center justify-content-between justify-content-lg-between p-4"> 
             <div>
-                    <a href="http://localhost:3000/" classNameName="d-flex align-items-center">
+                    <a href="https://superkabayan.herokuapp.com/" classNameName="d-flex align-items-center">
                         <img classNameName="bi" aria-label="logo" src={logo} />
                     </a>
             </div>

@@ -52,7 +52,7 @@ pool.connect((err) => {
 
     const server = app.listen(PORT, () => {
       const port = server.address().port;
-      console.log(`Server has started on https://superkabayan.herokuapp.com:${PORT}`);
+      console.log(`Server has started on http://localhost:${PORT}`);
     });
     // })
   }

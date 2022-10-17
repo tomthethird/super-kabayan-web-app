@@ -1,8 +1,30 @@
 // Variable overrides first
 
-$primary: #7023D7;
-$secondary: #3ff33f;
+$primary: #6035D9;
+$secondary: #24FC3E;
 $info: #686868;
+$danger: #FC175D;
+$warning: #FFC400;
+$success: #20c997;
+
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "info": $info,
+    "danger": $danger,
+    "warning": $warning,
+    "success": $success
+);
+
+$custom-colors: (
+    "primary-light": #8154FF,
+    "primary-dull": #6D52B9,
+    "gray-light": #F2F2F2,
+    "gray-lighter": #FBFBFB
+    
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
 
 // Then import Bootstrap
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";

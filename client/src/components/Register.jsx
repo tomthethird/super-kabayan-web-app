@@ -44,7 +44,7 @@ const Register = (props) => {
     try {
       const body = { username, email, userpassword, errorLog };
 
-      const response = await fetch("https://superkabayan.herokuapp.com/auth/register", {
+      const response = await fetch("http://localhost:8000/auth/register", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -56,7 +56,8 @@ const Register = (props) => {
 
       if (parseRes.token) {
         localStorage.setItem("token", parseRes.token);
-        props.pushAuth(true);
+        reload(1800)
+        // props.pushAuth(true);
       } else {
         setDbErrors(parseRes);
         props.pushAuth(false);
@@ -64,6 +65,11 @@ const Register = (props) => {
     } catch (error) {
       console.log(error.message);
     }
+  };
+
+  const reload = (num) => {
+    const timeOutId = setInterval(() => props.pushAuth(true), num);
+    return () => clearTimeout(timeOutId);
   };
 
   // useEffect(() => {
@@ -77,13 +83,12 @@ const Register = (props) => {
   // console.log(isSubmit);
 
   return (
-    <div className="container rounded-5 bg-white shadow">
+    <div className="container rounded-4 bg-white">
       <h4 className="pt-5 text-center">
         <strong>Activate your powers now!</strong>
       </h4>
 
-      {Object.keys(formErrors).length === 0 &&
-      Object.keys(dbErrors).length === 0 &&
+      {Object.keys(formErrors).length === 0 && Object.keys(dbErrors).length === 0 &&
       isSubmit ? (<div className="d-flex justify-content-center text-center">
         <div className="alert alert-success my-3 w-75" role="alert">
           Account successfully created!
@@ -94,26 +99,12 @@ const Register = (props) => {
 
       <form onSubmit={onSubmitForm}>
         <div className="form-outline px-5">
-          <input
-            type="text"
-            className="form-control my-3"
-            id="usernameForm"
-            placeholder="Username"
-            name="username"
-            value={formValues.username}
-            onChange={(e) => onChange(e)}
+          <input type="text" className="form-control my-3" id="usernameForm" placeholder="Username" name="username" value={formValues.username} onChange={(e) => onChange(e)}
           />
           <p className="form-text text-danger">{formErrors.username}</p>
           <p className="form-text text-danger">{dbErrors.usernameError}</p>
 
-          <input
-            type="email"
-            className="form-control"
-            id="emailForm"
-            placeholder="Email"
-            name="email"
-            value={formValues.email}
-            onChange={(e) => onChange(e)}
+          <input type="email" className="form-control" id="emailForm" placeholder="Email" name="email" value={formValues.email} onChange={(e) => onChange(e)}
           />
 
           <p id="emailHelp1" className="form-text text-muted px-2">
@@ -122,21 +113,13 @@ const Register = (props) => {
           <p className="form-text text-danger">{formErrors.email}</p>
           <p className="form-text text-danger">{dbErrors.emailError}</p>
 
-          <input
-            type="password"
-            className="form-control my-3"
-            id="passwordForm"
-            placeholder="Password"
-            name="userpassword"
-            value={formValues.userpassword}
-            onChange={(e) => onChange(e)}
+          <input type="password" className="form-control my-3" id="passwordForm" placeholder="Password" name="userpassword" value={formValues.userpassword} onChange={(e) => onChange(e)}
           />
           <p className="form-text text-danger">{formErrors.userpassword}</p>
         </div>
         <div className="text-center">
           <button type="submit"
-            className="btn btn-primary rounded-pill px-4 my-3" 
-          >
+            className="btn btn-primary rounded-pill px-4 my-3">
             Sign Up
           </button>
         </div>
@@ -147,7 +130,7 @@ const Register = (props) => {
       <p className="form-text text-muted pb-5 text-center px-3">
         By signing up, you agree to our <a href="/">Terms and Use</a> and to
         receive updates and acknowledge you've read our{" "}
-        <a href="/">Privacy Policy</a>.
+        <a href="/">Privacy Policy</a>
       </p>
     </div>
   );

@@ -5,10 +5,11 @@ const ExchangeRate = () => {
   const [exchangeUpdate, setExchangeUpdate] = useState("")
   const [userInfo, setUserInfo] = useState({});
   const [getCountry, setGetCountry] = useState(false);
+  const [getRate, setGetRate] = useState(false)
 
   const getUser = async () => {
     try {
-      const response = await fetch("https://superkabayan.herokuapp.com/utils/dash", {
+      const response = await fetch("http://localhost:8000/utils/dash", {
         method: 'GET',
         headers: {
           Authorization: localStorage.getItem("token")
@@ -40,6 +41,9 @@ const ExchangeRate = () => {
       if (parseExchange.rates) {
         setExchangeRate(parseExchange.rates);
         setExchangeUpdate(parseExchange.time_last_update_utc)
+        setGetRate(true)
+      } else {
+        setGetRate(false)
       }
     } catch (error) {
       console.error(error)

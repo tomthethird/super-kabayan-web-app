@@ -19,7 +19,7 @@ const Dashboard = ({ setAuth }) => {
 
   const getUser = async () => {
     try {
-      const response = await fetch("https://superkabayan.herokuapp.com/utils/dash", {
+      const response = await fetch("http://localhost:8000/utils/dash", {
         method: 'GET',
         headers: {
           Authorization: localStorage.getItem("token")
@@ -47,7 +47,7 @@ const Dashboard = ({ setAuth }) => {
   const getcountry = async () => {
     try {
       const response = await fetch(
-        "https://superkabayan.herokuapp.com/utils/countries",
+        "http://localhost:8000/utils/countries",
         {
           method: "GET",
           
@@ -61,7 +61,7 @@ const Dashboard = ({ setAuth }) => {
 
   const getSavings = async () => {
     try {
-      const response = await fetch(`https://superkabayan.herokuapp.com/savings/cards`, {
+      const response = await fetch(`http://localhost:8000/savings/cards`, {
         method: 'GET',
         headers: {
           Authorization: localStorage.getItem('token'),
@@ -79,7 +79,7 @@ const Dashboard = ({ setAuth }) => {
 
   const getPayments = async () => {
     try {
-      const response = await fetch(`https://superkabayan.herokuapp.com/payment/cards`, {
+      const response = await fetch(`http://localhost:8000/payment/cards`, {
         method: 'GET',
         headers: {
           Authorization: localStorage.getItem('token'),
@@ -114,7 +114,7 @@ const Dashboard = ({ setAuth }) => {
     try {
       const body = { country }
       const response = await fetch(
-        "https://superkabayan.herokuapp.com/account/profile",
+        "http://localhost:8000/account/profile",
         {
           method: "PUT",
           headers: {

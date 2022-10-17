@@ -7,7 +7,7 @@ const Notification = ({ setAuth }) => {
   const getNotif = async () => {
     try {
       const response = await fetch(
-        "https://superkabayan.herokuapp.com/utils/overdue", {
+        "http://localhost:8000/utils/overdue", {
         method: 'GET',
         headers: {
           Authorization: localStorage.getItem('token'),

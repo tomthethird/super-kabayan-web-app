@@ -24,22 +24,22 @@ function App() {
     setIsAuthenticated(boolean);
   };
 
-  const verify = async () => {
-    try {
-      const response = await fetch("https://superkabayan.herokuapp.com/auth/verify", {
-        method: 'GET',
-        headers: {Authorization: localStorage.getItem('token')}
-      });
-      const parseRes = await response.json();
-      if(parseRes.uuid) {
-        return true;
-      } else{
-        return false;
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const verify = async () => {
+  //   try {
+  //     const response = await fetch("https://superkabayan-server.herokuapp.com/auth/verify", {
+  //       method: 'GET',
+  //       headers: {Authorization: localStorage.getItem('token')}
+  //     });
+  //     const parseRes = await response.json();
+  //     if(parseRes.uuid) {
+  //       return true;
+  //     } else{
+  //       return false;
+  //     }
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
   return (
     //router to redirect and check authentication

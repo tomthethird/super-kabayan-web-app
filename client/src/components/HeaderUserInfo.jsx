@@ -9,7 +9,7 @@ const HeaderUserInfo = () => {
 
       try {
          const response = await fetch(
-            "https://superkabayan.herokuapp.com/account",
+            "http://localhost:8000/account",
             {
                method: "GET",
                //retrieving the token and putting it in the Auth header
