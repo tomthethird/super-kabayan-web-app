@@ -12,7 +12,7 @@ const HeaderDynamic = (props) => {
             <header className="fixed-top bg-primary text-light">
                 <nav className="bg-primary d-flex flex-wrap align-items-center justify-content-lg-between px-4 py-2">
                     <div>
-                        <a href="http://localhost:3000/" classNameName="d-flex align-items-center">
+                        <a href="http://localhost:3000/dashboard" classNameName="d-flex align-items-center">
                             <img classNameName="bi" aria-label="logo" src={logo} />
                         </a>
                         <Badge pill bg="primary-light">beta</Badge>
