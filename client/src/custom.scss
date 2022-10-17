@@ -19,12 +19,15 @@ $theme-colors: (
 $custom-colors: (
     "primary-light": #8154FF,
     "primary-dull": #6D52B9,
+    "primary-wash": #CDBBFF,
     "gray-light": #F2F2F2,
     "gray-lighter": #FBFBFB
     
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
+
+$btn-border-width: 0.1rem;
 
 // Then import Bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
