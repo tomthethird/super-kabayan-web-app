@@ -75,41 +75,18 @@ const Login = ({ setAuth }) => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-primary d-flex flex-wrap align-items-center justify-content-between justify-content-lg-between px-4">
         <div>
-          <a
-            href="http://localhost:3000"
-            classNameName="d-flex align-items-center"
-          >
+          <a href="http://localhost:3000/" classNameName="d-flex align-items-center">
             <img classNameName="bi" aria-label="logo" src={logo} />
           </a>
           <Badge pill bg="primary-light">beta</Badge>
         </div>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent1"
-          aria-controls="navbarSupportedContent1"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          {" "}
-          <span className="navbar-toggler-icon"></span>{" "}
-        </button>
-
-        <div
-          className="collapse navbar-collapse justify-content-between"
-          id="navbarSupportedContent1"
-        >
+        <div>
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              {" "}
-              <a className="nav-link text-white" href="/">
-
-              </a>{" "}
-            </li>
+            <li className="nav-item"><Link to="/login" className="nav-link text-white">Log In</Link></li>
           </ul>
         </div>
       </nav>
+
       <div className="container-fluid">
         <div className="container p-3">
           <div>
@@ -165,12 +142,12 @@ const Login = ({ setAuth }) => {
                     </div>
 
                   </form>
-                      <p className="mb-3 text-center">
-                        No account? <Link to="/">Create account</Link>
-                      </p>
-                      <p className="form-text text-muted pb-5 text-center px-3">
-                        <a href="/">Terms and Use</a> | <a href="/">Privacy Policy</a>.
-                      </p>
+                  <p className="mb-3 text-center">
+                    No account? <Link to="/">Create account</Link>
+                  </p>
+                  <p className="form-text text-muted pb-5 text-center px-3">
+                    <a href="/">Terms and Use</a> | <a href="/">Privacy Policy</a>.
+                  </p>
 
                 </div>
 
