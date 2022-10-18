@@ -178,6 +178,7 @@ const Savings = ({ setAuth }) => {
     getUser();
     getSavings();
     getCategory();
+    getExchange()
   }, []);
 
   useEffect(() => {

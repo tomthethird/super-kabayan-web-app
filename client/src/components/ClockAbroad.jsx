@@ -59,7 +59,7 @@ const ClockAbroad = () => {
                 <div className="p-4 pb-3 rounded-4" id="goodnight">
                 <IconContext.Provider value={{ size: "1.3rem", className:"text-light"}}><FaRegMoon/></IconContext.Provider>
                 <h6 className="pb-0 pt-2">{countryName}<br />{date}</h6>
-                    <h3 className="pt-2">{time} <small>{meridiem}</small></h3>
+                    <h3 className="pt-2 text-light">{time} <small>{meridiem}</small></h3>
                 </div>
             ) : (
                 <div className="p-4 pb-3 rounded-4" id="goodday">

@@ -141,7 +141,7 @@ const Dashboard = ({ setAuth }) => {
     <div>
       <HeaderDynamic pushAuth={boolean => setAuth(boolean)} />
       <SidebarNav />
-      <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 d-flex justify-content-center bg-light">
+      <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 d-flex justify-content-center">
         
           
             <div className="row main-container">
@@ -178,7 +178,7 @@ const Dashboard = ({ setAuth }) => {
                                 </select>
                               </div>
                               </div>
-                              <button type="submit" className="btn text-primary-light">
+                              <button type="submit" className="btn text-primary-light btn-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
                                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                   <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
@@ -223,7 +223,7 @@ const Dashboard = ({ setAuth }) => {
                 </div>
               </div>
 
-              <div className="col-xl-4 pt-5 info-container">
+              <div className="col-xl-4 pt-4 info-container">
 
                {getCountry ? (
                   <div className="row mx-1 mx-xl-0">
@@ -238,6 +238,7 @@ const Dashboard = ({ setAuth }) => {
                   <div className="row mx-1 mx-xl-0">
                     <div className="col-md-6 col-xl-12 pb-4">
                       <ClockManila />
+                      <p className="text-muted small mt-5">Set up your based country to see important details</p>
                     </div>
                   </div>
                 )}
@@ -246,9 +247,6 @@ const Dashboard = ({ setAuth }) => {
 
               </div>
             </div>
-          
-        
-
       </main >
     </div >
   );

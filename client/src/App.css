@@ -142,6 +142,7 @@ transform-origin: .5em 50%;
 .btn-toggle[aria-expanded="true"] {
 color: rgba(0, 0, 0, .85);
 }
+
 .btn-toggle[aria-expanded="true"]::before {
 transform: rotate(90deg);
 }
@@ -157,79 +158,10 @@ margin-left: 1.25rem;
 background-color: #e7def3;
 }
 
-#Emergency-Fund {
-  /* background-color: #10f0b4; */
-  background-image: linear-gradient(-45deg, #98edba,#a9ed66);
+.btn-icon {
+  border: 0;
+  padding: 0px 0px 0px 10px;
 }
-
-#titleHouse {
-  color: #a9ed66;
-}
-
-#titleCar {
-  color: #98cbed;
-}
-
-#titleGift {
-  color: #46cad4;
-}
-
-#titleWedding {
-  color: #edb07e;
-}
-
-#titleEducation {
-  color: #9c66ed;
-}
-
-#titleBusiness {
-  color: #ed98a9;
-}
-
-#titleVacation {
-  color: #667aed;
-}
-
-#titleLeisure {
-  color: #98edba;
-}
-
-#titleGadget {
-  color: #d9e864;
-}
-
-#titleRetirement {
-  color: #dbb070;
-}
-
-#pay0 {
-  color: #90e366;
-}
-#pay1 {
-  color: #476bba;
-}
-#pay2 {
-  color: #9f92e0;
-}
-#pay3 {
-  color: #6994c9;
-}
-#pay4 {
-  color: #a9ed66;
-}
-#pay5 {
-  color: #8f6c56;
-}
-#pay6 {
-  color: #8ee2b0;
-}
-#pay7 {
-  color: #d48fd9;
-}
-#pay8 {
-  color: #667aed;
-}
-
 
 #boxContainer {
   background-color: #f5f5f5
@@ -270,4 +202,8 @@ background-color: #e7def3;
 
 .newItem {
   background-image: linear-gradient(-45deg, #83aad8, #b9ffee);
+}
+
+.exchangerate-card {
+  background-color: #1E2341;
 }
